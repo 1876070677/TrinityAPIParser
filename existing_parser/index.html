@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAENU API Documents</title>
+
+    <!-- jQuery & Bootstrap4 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Noto Sans KR';
+        }
+        .apidescPart{
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand" href="#">가톨릭대학교 트리니티 정보 API</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://uportal.catholic.ac.kr" target="_blank">트리니티</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/dokdo2013/haenu-api" target="_blank">깃허브</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="margin-top:30px">
+        <div class="row">
+            <div class="col-sm-2 sticky-top">
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#classStudents">수강신청 인원 조회</a>
+                    </li>
+                </ul>
+                <hr class="d-sm-none">
+            </div>
+
+
+            <div class="col-sm-10">
+
+                <div id="classStudents" class="apidescPart">
+                    <h2>수강신청 인원 조회 API</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>분류</th>
+                                <th>정보</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">링크</td>
+                                <td>https://api.haenu.com/cuk/classStudents</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">메서드</td>
+                                <td>GET</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">리턴타입</td>
+                                <td>JSON</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">인증</td>
+                                <td>N (키 없이 접속 가능)</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">CORS 지원여부</td>
+                                <td>Y (지원)</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">파라미터 (요청변수)</td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <th>파라미터명</th>
+                                            <th>타입</th>
+                                            <th>설명</th>
+                                            <th>필수여부</th>
+                                        </tr>
+                                        <tr>
+                                            <td>subjNo</td>
+                                            <td>String</td>
+                                            <td>과목번호(5자)</td>
+                                            <td>Y</td>
+                                        </tr>
+                                        <tr>
+                                            <td>classNo</td>
+                                            <td>String</td>
+                                            <td>분반번호(1~2자)</td>
+                                            <td>Y</td>
+                                        </tr>
+                                        <tr>
+                                            <td>userId</td>
+                                            <td>String</td>
+                                            <td>트리니티 아이디</td>
+                                            <td>Y</td>
+                                        </tr>
+                                        <tr>
+                                            <td>userPw</td>
+                                            <td>String</td>
+                                            <td>트리니티 비밀번호</td>
+                                            <td>Y</td>
+                                        </tr>
+
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">요청 결과</td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <th>키</th>
+                                            <th>타입</th>
+                                            <th>설명</th>
+                                        </tr>
+                                        <tr>
+                                            <td>totalNum</td>
+                                            <td>String</td>
+                                            <td>수강신청 제한인원 (최대인원)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>nowNum</td>
+                                            <td>String</td>
+                                            <td>현재 수강신청 인원</td>
+                                        </tr>
+                                        <tr>
+                                            <td>className</td>
+                                            <td>String</td>
+                                            <td>강의명</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">에러코드</td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <th>코드</th>
+                                            <th>에러메시지</th>
+                                            <th>설명</th>
+                                            <th>대응방안</th>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>인자가 전달되어야 합니다.</td>
+                                            <td>쿼리스트링이 전달되지 않았을 때 발생하는 에러입니다.</td>
+                                            <td>쿼리스트링으로 인자를 전달해주세요.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>11</td>
+                                            <td>필수 인자가 전달되어야 합니다.</td>
+                                            <td>쿼리스트링은 존재하나 필수 인자가 모두 전달되지 않았습니다.</td>
+                                            <td>필수 인자를 전달해주세요.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>20</td>
+                                            <td>트리니티 정보 조회에 실패하였습니다.</td>
+                                            <td>트리니티 로그인 과정에 오류가 발생하였습니다.</td>
+                                            <td>인증 절차에 오류가 발생한 것으로 트리니티 아이디, 비밀번호를 다시 .</td>
+                                        </tr>
+                                        <tr>
+                                            <td>21</td>
+                                            <td>트리니티 정보 조회에 실패하였습니다.</td>
+                                            <td>존재하지 않는 강의거나 조회 과정에 오류가 발생하였습니다.</td>
+                                            <td>과목번호와 분반번호를 다시 한 번 확인해보시고, 정확한 번호임에도 에러 발생시 이슈 등록 바랍니다.</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>설명</td>
+                                <td>특정 강의의 현재 신청 인원, 최대 신청 인원 수를 실시간으로 조회해 반환합니다. 데이터 조회 전 트리니티 인증 과정으로 인해 호출시간이 1초 가량으로
+                                    긴 점 양해 바랍니다.<br>개인 트리니티 계정은 저장되지 않고 조회 당시에만 사용 후 폐기됩니다.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

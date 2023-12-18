@@ -1,0 +1,21 @@
+version: "3.0"
+
+services:
+  tomecat:
+    image: tomcat:8.5-jdk17-temurin
+    build:
+      context: ./frontend/SHBoard
+    container_name: trinity_frontend
+    network_mode: "bridge"
+    ports:
+      - 5554:8080
+    volumes:
+      - ./frontend/SHBoard/out/artifacts/SHBoard_war/SHBoard_war.war:/usr/local/tomcat/webapps/ROOT.war
+  
+  backend:
+    container_name: trinity_backend
+    build:
+      context: ./backend
+    network_mode: "bridge"
+    ports:
+      - 5555:5555
